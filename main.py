@@ -4,6 +4,7 @@ import requests
 import time
 import sys
 import easygui
+import configparser
 class main():
 	def __init__(self):
 
@@ -33,10 +34,17 @@ class check():
 			if self.checkjar():
 				if not os.path.exists(self.cwd+"/java.ini"):
 					s = easygui.diropenbox('选择java所在的文件夹','文件对话框')
-					t = s + '\\java.exe'
-
+					lt = s + '\\java.exe'
+					print(lt)
+					sth = os.system(f'''{lt} -cp "./libs/*" net.mamoe.mirai.console.pure.MiraiConsolePureLoader %*''')
+					os.system('title Mirai Console')
+					print(sth)
 
 					pass
+				else:
+					p = configparser.ConfigParser()
+					p.read(self.cwd+"/java.ini",encoding='utf-8')
+					lt = p['java']['path']
 			else:
 
 				self.getjar()
@@ -73,15 +81,15 @@ class check():
 			return '{:.2f}'.format(num)
 		for s in self.result:
 			if s == False and adm == 0:
-				print(1)
-				downloadFile('mirai-core-qqandroid-1.3.0.jar','https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-core-qqandroid/mirai-core-qqandroid-1.3.0.jar')
+				#print(1)
+				downloadFile('libs\mirai-core-qqandroid-1.2.3.jar','https://dev25.baidupan.com/092015bb/2020/09/20/dc92de2f98b8796c920cfcac93537340.jar?st=34hxIiJ3VkSU7so-W9gavw&e=1600589246&b=AT5ZMFIgUTUCPlIpUWIBagYhCzIBLVAnAyFbN1w1XjhTc10yUDlZOFggVzBWKAUzUSpdMld4VzsFNwF_b&fi=29928242&pid=218-83-1-137&up=1.')
 			if s == False and adm == 1:
-				#downloadFile()
-				print(1)
+				downloadFile('libs\mirai-console-pure-1.0-M4-dev-3.jar','https://dev05.baidupan.com/092015bb/2020/09/20/30c02e7824542722fbd1bb8c65faf847.jar?st=XCiFdJCTNX7ofNfHJPF8FQ&e=1600589005&b=BzgIYQl7UTVSbgV_bAjFXPFNoWnUEalc9VWMIKFUiVSJTcwhtBisEMAJ5UDZRLFIbVDVbKgFkC2gCJwAgBjICLgc_aCGkJew_c_c&fi=29928230&pid=218-83-1-137&up=1.')
+				#print(1)
 				pass
 			if s == False and adm == 2:
-				#downloadFile()
-				print(1)
+				downloadFile('libs\mirai-console-1.0-M4-dev-3.jar','https://dev53.baidupan.com/092015bb/2020/09/20/8affec71dec63444a7f82038d7976566.jar?st=zX4Smq2OAda_q_GXbS5i6Q&e=1600589067&b=BjkMZQR2WDxRbQJ5AjEDaAY9WnUMYgVvUmQKKl1rBCgIagglAE1UZQB4UWNVYANxAHgOYVR7BGgHNVgn&fi=29928245&pid=218-83-1-137&up=1.')
+				#print(1)
 				pass
 			adm += 1
 
