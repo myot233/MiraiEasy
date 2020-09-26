@@ -1,0 +1,5 @@
+2020-09-21 21:20:49 I/Net 3401303724: Connected to server 42.81.169.46:8080
+2020-09-21 21:20:49 V/Net 3401303724: Send: wtlogin.login
+2020-09-21 21:20:49 V/Net 3401303724: Recv: UnsafeLogin(url=https://ti.qq.com/safe/verify?_wv=2&_wwv=128&uin=3401303724&sig=KqiQTWHwNoXrGxZ1SQ6EhqH11bT5b2kSoXDCCRG4PNZQa6dV57CReNstmgkEJAj1ryNNRTZQIciZ0prb81Eliy%2BeYmz2Kal1r2Vg8OuRlV6h7UQe8AzL5XVMKL7yE2it)
+2020-09-21 21:20:52 V/Net 3401303724: Send: wtlogin.login
+2020-09-21 21:20:52 V/Net 3401303724: Recv: UnsafeLogin(url=https://ti.qq.com/safe/verify?_wv=2&_wwv=128&uin=3401303724&sig=dmV59sGl59Sc2pUHi77EVOq01QfLHQ3YtU9G5GTNia0ZPJ15m4pzAGpkrt%2FwFzK6nzRyvkpdzzQwqZOK1I3qOgXobnytPr4RiY3zAIZNvy%2BqoPUulIAidpA3E8DAYzSg)

@@ -1,3 +1,4 @@
+# coding：utf-8
 import os
 import md5list
 import requests
@@ -64,47 +65,36 @@ class check():
 			self.getjar()
 
 	def getjar(self):
-		print(1)
 		adm = 0
-		dir1 = self.cwd + "\\libs"
 
-		def downloadFile(name, url):
-			headers = {'Proxy-Connection': 'keep-alive'}
-			r = requests.get(url, stream=True, headers=headers)
-			length = float(r.headers['content-length'])
-			f = open(name, 'wb')
-			count = 0
-			count_tmp = 0
-			time1 = time.time()
-			for chunk in r.iter_content(chunk_size=512):
-				if chunk:
-					f.write(chunk)
-					count += len(chunk)
-					if time.time() - time1 > 2:
-						p = count / length * 100
-						speed = (count - count_tmp) / 1024 / 1024 / 2
-						count_tmp = count
-						print(name + ': ' + formatFloat(p) + '%' + ' Speed: ' + formatFloat(speed) + 'M/S')
-						time1 = time.time()
-			f.close()
-
-		def formatFloat(num):
-			return '{:.2f}'.format(num)
-
+		def resource_path(relative_path):
+			if getattr(sys, 'frozen', False):  # 是否Bundle Resource
+				base_path = sys._MEIPASS
+			else:
+				base_path = os.path.abspath(".")
+			return os.path.join(base_path, relative_path)
 		for s in self.result:
+
 			if s == False and adm == 0:
-				# print(1)
-				downloadFile('libs\mirai-core-qqandroid-1.2.3.jar',
-				             'https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-core-qqandroid/mirai-core-qqandroid-1.2.3.jar')
+				with open(resource_path(os.path.join("res", "mirai-core-qqandroid-1.2.3.jar")),'rb') as t:
+					with open('libs\mirai-core-qqandroid-1.2.3.jar','wb') as s:
+						s.write(t.read())
+				pass
 			if s == False and adm == 1:
-				downloadFile('libs\mirai-console-pure-1.0-M4-dev-3.jar',
-				             'https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-console-pure/mirai-console-pure-1.0-M4-dev-3.jar')
+				#downloadFile('libs\mirai-console-pure-1.0-M4-dev-3.jar',
+				#             'https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-console-pure/mirai-console-pure-1.0-M4-dev-3.jar')
 				# print(1)
+				with open(resource_path(os.path.join("res", "mirai-console-pure-1.0-M4-dev-3.jar")),'rb') as t:
+					with open('libs\mirai-console-pure-1.0-M4-dev-3.jar','wb') as s:
+						s.write(t.read())
 				pass
 			if s == False and adm == 2:
-				downloadFile('libs\mirai-console-1.0-M4-dev-3.jar',
-				             'https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-console/mirai-console-1.0-M4-dev-3.jar')
+				#downloadFile('libs\mirai-console-1.0-M4-dev-3.jar',
+				 #            'https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-console/mirai-console-1.0-M4-dev-3.jar')
 				# print(1)
+				with open(resource_path(os.path.join("res", "mirai-console-1.0-M4-dev-3.jar")),'rb') as t:
+					with open('libs\mirai-console-1.0-M4-dev-3.jar','wb') as s:
+						s.write(t.read())
 				pass
 			adm += 1
 
